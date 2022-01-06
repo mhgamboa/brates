@@ -1,0 +1,30 @@
+{
+  "name": "fiodl",
+  "version": "1.0.0",
+  "description": "Finding the best way to hodl your fiat",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "server": "nodemon index.js",
+    "client": "cd client && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mhgamboa/fiodl.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mhgamboa/fiodl/issues"
+  },
+  "homepage": "https://github.com/mhgamboa/fiodl#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "puppeteer": "^13.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
