@@ -18,13 +18,17 @@ const getHTML = async url => {
   //   );
   // });
 
-  await page.$$eval("div", arr => {
+  const rate = await page.$$eval("div", arr => {
     console.log(arr);
   });
   // console.log(rate);
 
   await browser.close();
 };
+
+app.get("/", (req, res) => {
+  res.json({ msg: "hello" });
+});
 
 const main = async () => {
   try {
