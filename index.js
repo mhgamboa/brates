@@ -1,14 +1,23 @@
-import dotenv from "dotenv";
-dotenv.config();
+require("dotenv").config();
+const scrape = require("./websites/_scrape.js");
+const express = require("express");
 
-// Scraping Functions
-import scrapeSofi from "./websites/sofi.js";
-import scrapeAffirm from "./websites/affirm.js";
+const app = express();
+const port = process.env.PORT || 8080;
+
+// app.use(express.static(path.join(__dirname, "client", "build")));
+// app.get("/", function (req, res) {
+//   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+// });
+
+app.get("/", (req, res) => {
+  res.send(`Listeing on port ${port}`);
+});
 
 const main = async () => {
   try {
-    // scrapeSofi();
-    scrapeAffirm();
+    app.listen(port, () => console.log(`server is listening on port ${port}`));
+    await scrape();
   } catch (err) {
     console.error(err);
   }

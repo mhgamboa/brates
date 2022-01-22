@@ -1,19 +1,19 @@
-import puppeteer from "puppeteer";
-import parse from "./parse.js";
+const puppeteer = require("puppeteer");
+const parse = require("./_parse.js");
 
-export default async () => {
-  console.log("https://www.affirm.com/savings");
+module.exports = async () => {
+  console.log("affirm");
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.goto("https://www.affirm.com/savings");
 
-  const rate = await page.evaluate(() => {
+  let rate = await page.evaluate(() => {
     const main = document.querySelector("#maincontent");
-
-    // Affirm has no easy class/id to identify the APY.
-    // Hence "#maincontent" seems the most stable
+    // Affirm has no easy class/id to identify the APY. "#maincontent" seems the most stable
     return main.children[2].children[0].children[1].children[1].children[1].textContent;
   });
+  rate = parse(rate);
   await browser.close();
-  console.log(parse(rate));
+
+  return rate;
 };
