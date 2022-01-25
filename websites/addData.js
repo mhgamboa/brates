@@ -5,7 +5,7 @@ module.exports = async () => {
   try {
     for (const site in sites) {
       console.log(`Beginning ${site}`);
-      const { scrape, Rate } = sites[site];
+      const { scrape, Rate, type } = sites[site];
 
       let rate = await scrape();
       console.log(`${site} successfully Scraped`);
@@ -14,7 +14,7 @@ module.exports = async () => {
       if (rate !== "Error") {
         console.log(`${site} successfully Parsed`);
 
-        await Rate.create({ rate });
+        await Rate.create({ rate, type });
         console.log(`${site} successfully Added to the DB`);
       }
     }

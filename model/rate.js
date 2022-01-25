@@ -1,6 +1,12 @@
 const mongoose = require("mongoose");
 
-const UserSchema = new mongoose.Schema({ rate: Number }, { timestamps: true });
+const UserSchema = new mongoose.Schema(
+  {
+    rate: Number,
+    type: String,
+  },
+  { timestamps: true }
+);
 
 module.exports.affirm = mongoose.model("Affirm", UserSchema);
 module.exports.discover = mongoose.model("Discover", UserSchema);
