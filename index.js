@@ -3,7 +3,7 @@ const addData = require("./websites/addData.js");
 const connectDB = require("./db/connect.js");
 
 const main = async () => {
-  const day = new Date().getDate();
+  const day = new Date().getDay();
   if (day !== 1) {
     console.log(`Today is day ${day}. Function will not run`);
     return;
