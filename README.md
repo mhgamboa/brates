@@ -6,3 +6,4 @@ Currently scraped websites:
 
 - [Affirm](https://www.affirm.com/savings)
 - [Discover](https://www.discover.com/online-banking/savings-account/)
+- [Voyager](https://rewards.investvoyager.com/interest/)

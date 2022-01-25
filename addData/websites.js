@@ -9,6 +9,11 @@ module.exports = {
     Rate: require("../model/rate").discover,
     type: "Fiat",
   },
+  Voyager: {
+    scrape: require("./scrape/voyager.js"),
+    Rate: require("../model/rate").voyager,
+    type: "Stablecoin",
+  },
   // Sofi: {
   //   scrape: ...,
   //   Rate: ...,

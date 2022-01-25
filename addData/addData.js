@@ -1,5 +1,5 @@
 const parse = require("./parse");
-const sites = require("./sites");
+const sites = require("./websites");
 
 module.exports = async () => {
   try {
@@ -12,13 +12,11 @@ module.exports = async () => {
 
       rate = parse(rate);
       if (rate !== "Error") {
-        console.log(`${site} successfully Parsed`);
-
         await Rate.create({ rate, type });
-        console.log(`${site} successfully Added to the DB`);
+        console.log(`${site} successfully parsed and added to the DB`);
       }
     }
   } catch (err) {
-    console.error(err);
+    console.error("Could not add a new Item to the database");
   }
 };

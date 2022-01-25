@@ -1,5 +1,5 @@
 require("dotenv").config();
-const addData = require("./websites/addData.js");
+const addData = require("./addData/addData.js");
 const connectDB = require("./db/connect.js");
 
 const main = async () => {

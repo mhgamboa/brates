@@ -10,4 +10,5 @@ const UserSchema = new mongoose.Schema(
 
 module.exports.affirm = mongoose.model("Affirm", UserSchema);
 module.exports.discover = mongoose.model("Discover", UserSchema);
+module.exports.voyager = mongoose.model("Voyager", UserSchema);
 // module.exports.sofi = mongoose.model("Sofi", UserSchema);
