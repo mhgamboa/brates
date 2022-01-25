@@ -1,21 +1,18 @@
 require("dotenv").config();
 const addData = require("./websites/addData.js");
-// const express = require("express");
-
 const connectDB = require("./db/connect.js");
-// const app = express();
-// const port = process.env.PORT || 8080;
-
-// app.get("/", (req, res) => {
-//   res.send(`Listeing on port ${port}...`);
-// });
 
 const main = async () => {
-  console.log(`starting main file`);
+  const day = new Date().getDate();
+  if (day !== 1) {
+    console.log(`Today is day ${day}. Function will not run`);
+    return;
+  }
+
+  console.log(`Today is day ${day}. Now starting main file`);
   try {
     await connectDB(process.env.MONGO_URI);
     await addData();
-    // app.listen(port, () => console.log(`Listening on port ${port}...`));
   } catch (err) {
     console.error(err);
   }
