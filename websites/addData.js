@@ -1,31 +1,21 @@
 const parse = require("./parse");
-
-const sites = {
-  Affirm: {
-    scrape: require("./scrape/affirm.js"),
-    Rate: require("../model/rate").affirm,
-  },
-  Discover: {
-    scrape: require("./scrape/discover.js"),
-    Rate: require("../model/rate").discover,
-  },
-};
+const sites = require("./sites");
 
 module.exports = async () => {
   try {
-    for (const prop in sites) {
-      console.log(`Beginning ${prop}`);
-      const { scrape, Rate } = sites[prop];
+    for (const site in sites) {
+      console.log(`Beginning ${site}`);
+      const { scrape, Rate } = sites[site];
 
       let rate = await scrape();
-      console.log(`${prop} succuessfully Scraped`);
+      console.log(`${site} successfully Scraped`);
 
       rate = parse(rate);
       if (rate !== "Error") {
-        console.log(`${prop} succuessfully Parsed`);
+        console.log(`${site} successfully Parsed`);
 
         await Rate.create({ rate });
-        console.log(`${prop} succuessfully Added to the DB`);
+        console.log(`${site} successfully Added to the DB`);
       }
     }
   } catch (err) {
