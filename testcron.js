@@ -1,6 +1,4 @@
-const sayHello = () => {
+setTimeout(() => {
   const today = new Date().getDay();
   console.log(`Hello World. Today is day ${today}`);
-};
-
-sayHello();
+}, 5000);
