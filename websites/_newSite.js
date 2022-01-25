@@ -3,7 +3,7 @@ const puppeteer = require("puppeteer");
 const parse = require("./parse");
 
 module.exports = async () => {
-  //   const browser = await puppeteer.launch();
+  //   const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
   //   const page = await browser.newPage();
   //   await page.goto("https://www.affirm.com/savings");
   //   // Affirm has no easy class/id to identify the APY. "#maincontent" seems the most stable
