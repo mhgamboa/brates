@@ -1,10 +1,11 @@
 module.exports = rate => {
-  const regex = /[0-9]*[0-9]*\.*[0-9]*[0-9]*/;
-  let match = rate.match(regex)[0];
+  const regex = /[0-9]*[0-9]*\.*[0-9]*[0-9]*/g;
+  let matches = rate.match(regex);
 
-  if (!parseFloat(match)) {
-    console.error(`could not parse ${match}`);
-    return "Error";
+  for (let match of matches) {
+    if (parseFloat(match)) return parseFloat(match);
   }
-  return parseFloat(match);
+
+  console.error(`could not parse ${match}`);
+  return "Error";
 };

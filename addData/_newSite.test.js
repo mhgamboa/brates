@@ -23,9 +23,6 @@ test("Scrape should be 0.5%", async () => {
   expect(await result()).toBe(0.5);
 });
 
-// For Ally Bank https://www.ally.com/bank/online-savings-account/
-// document.querySelectorAll(".allysf-rates-v1-rate")
-
 // https://www.marcus.com/us/en/savings/high-yield-savings
 // document.querySelectorAll('.cpm-text')
 // Text content contains "%"
