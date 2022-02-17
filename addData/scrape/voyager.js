@@ -1,4 +1,3 @@
-// Testing Ground for adding new sites
 const puppeteer = require("puppeteer");
 
 module.exports = async () => {

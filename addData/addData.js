@@ -10,7 +10,7 @@ module.exports = async () => {
       let rate = await scrape();
       console.log(`${site} successfully Scraped`);
 
-      rate = parse(rate);
+      rate = parse(rate.trim());
       if (rate !== "Error") {
         await Rate.create({ rate, type });
         console.log(`${site} successfully parsed and added to the DB`);

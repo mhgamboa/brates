@@ -1,4 +1,8 @@
 module.exports = {
+  Ally: {
+    scrape: require("./scrape/ally.js"),
+    Rate: require("../model/rate").ally,
+  },
   Affirm: {
     scrape: require("./scrape/affirm.js"),
     Rate: require("../model/rate").affirm,
@@ -17,5 +21,6 @@ module.exports = {
   // Sofi: {
   //   scrape: ...,
   //   Rate: ...,
+  // type: "fiat",
   // }
 };

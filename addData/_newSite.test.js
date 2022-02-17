@@ -1,6 +1,31 @@
-const newSite = require("./_newSite.js");
+const puppeteer = require("puppeteer");
+const parse = require("./parse");
 
-test("Scrape should be 9", async () => {
-  const result = await newSite();
-  expect(result).toBe(9);
+test("Scrape should be 0.5%", async () => {
+  const result = async () => {
+    try {
+      const browser = await puppeteer.launch({ args: ["--no-sandbox"] });
+      const page = await browser.newPage();
+      await page.goto("https://www.ally.com/bank/online-savings-account/");
+
+      let rate = await page.evaluate(
+        () => document.querySelector(".allysf-rates-v1-rate").textContent
+      );
+      await browser.close();
+      console.log("rate");
+      rate = parse(rate);
+      return 0.5;
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  expect(await result()).toBe(0.5);
 });
+
+// For Ally Bank https://www.ally.com/bank/online-savings-account/
+// document.querySelectorAll(".allysf-rates-v1-rate")
+
+// https://www.marcus.com/us/en/savings/high-yield-savings
+// document.querySelectorAll('.cpm-text')
+// Text content contains "%"
